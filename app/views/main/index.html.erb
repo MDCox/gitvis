@@ -1,0 +1,8 @@
+<div class="row index-main">
+  <div class="twelve columns text-center">
+    <%= form_for @organization do |f| %>
+      <%= f.text_field :name, placeholder: "Organization name" %>
+      <%= f.submit "go" %>
+    <% end %>
+  </div>
+</div>
