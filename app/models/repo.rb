@@ -3,7 +3,12 @@ class Repo < ActiveRecord::Base
   has_many :commits
 
   def build_commits
-    commits = Octokit.commits(self.full_name)
+    begin
+      commits = Octokit.commits(self.full_name)
+    rescue Octokit::Error => e
+      puts e.message
+      commits = []
+    end
     commits.each do |commit|
       Commit.create(repo_id: self.id,
                     author: commit[:commit][:author][:name],
