@@ -14,6 +14,8 @@ class PeopleController < ApplicationController
                    location: info[:location],
                    bio: info[:bio])
 
+    @person.build_repos(info)
+
     redirect_to organization_path(@person.organization)
   end
 
