@@ -8,7 +8,7 @@ class OrganizationsController < ApplicationController
   def create
     @org = Organization.new(organization_params)
     if @org.save
-      redirect_to orginization_path(@org)
+      redirect_to organization_path(@org)
     else
       flash[:alert] = "Please enter an orginization name"
       redirect_to root_path
