@@ -1,6 +1,6 @@
 $( document ).ready(function(){
-  $("#in-org").slideToggle(800, function(){
-    $("#form-class").fadeIn(400);
+  $("#in-org").fadeIn(300, function(){
+    $("#form-class").fadeIn(300);
   });
 });
 

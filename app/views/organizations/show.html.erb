@@ -20,6 +20,7 @@
         <small class="error"><%= flash[:alert] %></small>
       <% end %>
 
+      <%= f.hidden_field :organization_id, value: @org.id %>
       <%= f.text_field :handle, placeholder: "Github Username" %>
       <%= f.submit "add", class: "button" %>
     <% end %>
