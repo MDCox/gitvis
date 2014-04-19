@@ -8,7 +8,9 @@
   <section class="top-bar-section">
     <ul id="in-org-right" class="right">
       <% @people.each do |person| %>
-        <li class="handle"><%= person.handle %></li>
+        <li class="handle">
+          <img src="<%= person.avatar_url %>"><%= person.handle %>
+        </li>
       <% end %>
     </ul>
   </section>
