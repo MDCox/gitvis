@@ -1,0 +1,10 @@
+if ($(".handle").length === 0) {
+  $("#in-org").hide();
+}
+$( document ).ready(function(){
+  if ( $(".handle").length === 0) {
+    $("#in-org").fadeIn(300, function(){
+      $("#form-class").fadeIn(300);
+    });
+  }
+});

@@ -7,7 +7,7 @@ class OrganizationsController < ApplicationController
     if @org.save
       redirect_to organization_path(@org)
     else
-      flash[:alert] = "Please enter an orginization name"
+      flash[:alert] = "Please enter an organization name"
       redirect_to root_path
     end
   end
