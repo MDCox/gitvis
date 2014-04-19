@@ -1,2 +1,18 @@
-<h1>Organizations#show</h1>
-<p>Find me in app/views/organizations/show.html.erb</p>
+<nav id="in-org" class="top-bar in-org-nav" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1 ><a href="#" class="org-name"><%= @org.name %></a></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul id="in-org-right" class="right">
+
+    </ul>
+  </section>
+</nav>
+
+<%= form_for @person do |f| %>
+  <%= f.text_field :handle, placeholder: "Github Username" %>
+  <%= f.submit, class: "button" %>
+<% end %>
