@@ -1,8 +1,11 @@
 <div class="row index-main">
   <div class="twelve columns text-center">
     <%= form_for @organization do |f| %>
+      <% if flash[:alert] %>
+        <small class="error"><%= flash[:alert] %></small>
+      <% end %>
       <%= f.text_field :name, placeholder: "Organization name" %>
-      <%= f.submit "go" %>
+      <%= f.submit "go", class: "button" %>
     <% end %>
   </div>
 </div>
