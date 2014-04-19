@@ -12,7 +12,16 @@
   </section>
 </nav>
 
-<%= form_for @person do |f| %>
-  <%= f.text_field :handle, placeholder: "Github Username" %>
-  <%= f.submit, class: "button" %>
-<% end %>
+<div class="row index-main">
+  <div class="twelve columns text-center">
+    <%= form_for @person do |f| %>
+
+      <% if flash[:alert] %>
+        <small class="error"><%= flash[:alert] %></small>
+      <% end %>
+
+      <%= f.text_field :handle, placeholder: "Github Username" %>
+      <%= f.submit "add", class: "button" %>
+    <% end %>
+  </div>
+</div>
