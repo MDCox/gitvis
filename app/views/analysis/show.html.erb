@@ -1,0 +1,12 @@
+<h2>Organization</h2>
+<%= @organization.name %>
+
+<h3>Members</h3>
+<% @organization.people.each do |person| %>
+  <p><%= person.name %></p>
+  <ul>
+  	<% person.repos.each do |repo| %>
+  	  <li><%= repo.name %></li>
+  	<% end %>
+  </ul>
+<% end %>
