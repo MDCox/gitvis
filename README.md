@@ -1,6 +1,8 @@
 Gitvis
 =========
 
+    The neo4j branch is currently unoperational while the database is being ported from postgres to neo4j.
+
 Visual analysis of group Github accounts.
 
 The main purpose of gitvis is to allow me to explore d3 indepth, and try to take full advantage of it's capabilities.
