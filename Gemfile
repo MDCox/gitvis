@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.0.4'
-gem 'pg'
+gem 'neo4j-core'
 gem 'therubyracer'
 gem 'sass-rails', '4.0.2'
 gem 'uglifier'
@@ -17,10 +17,15 @@ gem 'd3-rails'
 gem 'foundation-rails'
 gem "octokit"
 
+platforms :jruby do
+  gem 'neo4j-community', '~> 2.0.0'
+end
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'os'
 end
 
 group :test, :development do
