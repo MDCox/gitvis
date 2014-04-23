@@ -3,37 +3,47 @@
 <script>
   var people = {
     <% @people.each do |person| %>
-      "<%= person.handle %>": {
-        name: "<%= person.name %>",
-        email: "<%= person.email %>",
-        profile_url: "<%= person.profile_url %>",
-        avatar_url: "<%= person.avatar_url %>"
+      "<%= j person.handle %>": {
+        name: "<%= j person.name %>",
+        email: "<%= j person.email %>",
+        profile_url: "<%= j person.profile_url %>",
+        avatar_url: "<%= j person.avatar_url %>"
       },
     <% end %>
   }
 
   var repos = {
     <% @repos.each do |repo| %>
-      "<%= repo.name %>": {
-        full_name: "<%= repo.full_name %>",
-        description: "<%= repo.description %>",
-        language: "<%= repo.language %>"
+      "<%= j repo.name %>": {
+        full_name: "<%= j repo.full_name %>",
+        description: "<%= j repo.description %>",
+        language: "<%= j repo.language %>"
       },
     <% end %>
   }
 
   var commits = {
     <% @commits.each do |commit| %>
-      <%= commit.id %> {
-        author: "<%= commit.author %>",
+      <%= commit.id %>: {
+        author: "<%= j commit.author %>",
         date: "<%= commit.date %>",
-        message: "<%= commit.message %>",
-        language: "<%= commit.repo.language %>"
-      }
+        message: "<%= j commit.message %>",
+        language: "<%= j commit.repo.language %>"
+      },
     <% end %>
   }
+
+  var margin = {top: 10, right: 40, bottom: 150, left: 60},
+      width = 940 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom,
+      contextHeight = 50;
+      contextWidth = width * .5;
 
   var org = "<%= @organization.name %>"
 
   var graph = d3.select("#graph")
+                .append("svg")
+                .attr("height", height + margin.top + margin.bottom)
+                .attr("width", width + margin.left + margin.right)
+                .style("background-color", "#000")
 </script>
