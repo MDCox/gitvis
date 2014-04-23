@@ -16,5 +16,7 @@ class AnalysisController < ApplicationController
         @commits << commit
       end
     end
+
+    @commits.sort_by! {|commit| commit.date }
   end
 end

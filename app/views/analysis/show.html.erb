@@ -1,52 +1,50 @@
 <div id="graph"></div>
 
 <script>
-  $(document).ready(function(){
+  var people = {
+    <% @people.each do |person| %>
+      "<%= j person.handle %>": {
+        name: "<%= j person.name %>",
+        email: "<%= j person.email %>",
+        profile_url: "<%= j person.profile_url %>",
+        avatar_url: "<%= j person.avatar_url %>"
+      },
+    <% end %>
+  }
 
-    var people = {
-      <% @people.each do |person| %>
-        "<%= j person.handle %>": {
-          name: "<%= j person.name %>",
-          email: "<%= j person.email %>",
-          profile_url: "<%= j person.profile_url %>",
-          avatar_url: "<%= j person.avatar_url %>"
-        },
-      <% end %>
-    }
+  var repos = {
+    <% @repos.each do |repo| %>
+      "<%= j repo.name %>": {
+        full_name: "<%= j repo.full_name %>",
+        description: "<%= j repo.description %>",
+        language: "<%= j repo.language %>"
+      },
+    <% end %>
+  }
 
-    var repos = {
-      <% @repos.each do |repo| %>
-        "<%= j repo.name %>": {
-          full_name: "<%= j repo.full_name %>",
-          description: "<%= j repo.description %>",
-          language: "<%= j repo.language %>"
-        },
-      <% end %>
-    }
+  var commits = {
+    <% @commits.each do |commit| %>
+      <%= commit.id %>: {
+        author: "<%= j commit.author %>",
+        date: "<%= commit.date %>",
+        message: "<%= j commit.message %>",
+        language: "<%= j commit.repo.language %>"
+      },
+    <% end %>
+  }
 
-    var commits = {
-      <% @commits.each do |commit| %>
-        <%= commit.id %>: {
-          author: "<%= j commit.author %>",
-          date: "<%= commit.date %>",
-          message: "<%= j commit.message %>",
-          language: "<%= j commit.repo.language %>"
-        },
-      <% end %>
-    }
+  var margin = {top: 10, right: 40, bottom: 150, left: 60},
+      width = 940 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom,
+      contextHeight = 50;
+      contextWidth = width * .5;
 
-    var margin = {top: 10, right: 40, bottom: 150, left: 60},
-        width = 940 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom,
-        contextHeight = 50;
-        contextWidth = width * .5;
+  var org = "<%= @organization.name %>"
 
-    var org = "<%= @organization.name %>"
-
-    var graph = d3.select("#graph")
-                  .append("svg")
-                  .attr("height", height + margin.top + margin.bottom)
-                  .attr("width", width + margin.left + margin.right)
-                  .style("background-color", "#000")
-  });
+  var graph = d3.select("#graph")
+                .append("svg")
+                .attr("height", height + margin.top + margin.bottom)
+                .attr("width", width + margin.left + margin.right)
+                .style("border-width", 1)
+                .style("border-style", "solid")
 </script>
